@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>帖子查看</title>
+</head>
+<body>
+    <ul>
+       {% for post in posts %}
+            <li>没错,我是很low的题目{{ post.title }}</li>
+            <li>是的,我是有点low的内容{{ post.content }}</li>
+            <li>哈哈,我是没有格式化过的时间{{ post.created }}</li>
+           <div style="height: 20px"></div>
+           <div style="height: 20px">=======很随意的分隔符===============</div>
+           <div style="height: 20px"></div>
+       {% endfor %}
+    </ul>
+    <h3>这有一个搜索框</h3>
+     <form class="form-horizontal" action='/post/search/' method="POST">
+                    {% csrf_token %}
+                    <input type="text" class="form-control" placeholder="搜索" name="keyword">
+     </form>
+
+</body>
+</html>
